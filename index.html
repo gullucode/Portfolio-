@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GULLUCODE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Untitled_design-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header>
+        <span class="menu-btn" onclick="toggleMenu()">☰</span>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> HOME</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-user"></i> ABOUT</a></li>
+                <li><a href="projects.html"><i class="fa-solid fa-briefcase"></i> PROJECTS</a></li>
+                <!-- <li><a href="services.html"><i class="fa-solid fa-gear"></i> SERVICES</a></li> -->
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="Untitled_design-removebg-preview.png" alt="image" width="40" height="40">
+            <h3>GULLUCODE</h3>
+        </div>
+        <button><input type="search" placeholder="Search..." class="searchbox"> <i
+                class="fa-solid fa-magnifying-glass"></i></button>
+
+        <button class="login"><a href="login.html">Login</a></button>
+    </header>
+
+    <main>
+        <div class="container" id="home">
+            <img src="Untitled_design-removebg-preview.png" alt="image" width="300">
+            <div class="intro">
+                <h1>GulluCode</h1>
+                <div class="animation">
+                </div>
+                <p>
+                    Welcome to Gullucode!
+                    <br> 
+                    At Gullucode, we simplify the world of coding and technology for you! Whether you're a beginner or
+                    an experienced programmer, our platform offers tutorials, tips, and tricks on Python, website
+                    development, data analysis, machine learning, and more. We cover everything from basic concepts to
+                    advanced techniques, making learning fun and accessible.
+                    <br> <br>
+
+                    Join us on this journey to enhance your coding skills and unlock new career opportunities at Gullucode!
+                </p>
+
+
+                <section class="social">
+                    <a href="https://github.com/GulluCode"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gulshan-kumar-b703bb322/"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/gullucode/"><i class="fa-solid fa-code fa-rotate-270"></i></a>
+                    <a href="https://www.hackerrank.com/gullucode"><i class="fa-brands fa-hackerrank"></i></a>
+                    <a href="https://www.kaggle.com/gulashan"><i class="fa-brands fa-kaggle"></i></a>
+                    <a href="https://www.freelancer.in/u/mgkyadav2006"><i class="fa-solid fa-f"></i></a>
+                    <a href="https://www.instagram.com/gullucode?igsh=cTd1bThnejlqZmxu"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </section>
+            </div>
+
+        </div>
+        <div class="certificate">
+            <!-- Certificate Popup -->
+            <div id="certPopup" class="popup">
+                <span class="close-btn">&times;</span>
+                <img id="popupImg" src="" alt="Certificate Preview">
+            </div>
+
+            <h2>Certificates</h2>
+            <div class="certi-images">
+                <img src="Gulashan Kumar - Python.png" alt="Certificate 1" onclick="openPopup(this.src)" width="300">
+                <img src="Gulashan - Pandas.png" alt="Certificate 2" onclick="openPopup(this.src)" width="300">
+                <img src="Gulashan - Data Cleaning.png" alt="Certificate 3" onclick="openPopup(this.src)" width="300">
+                <img src="Screenshot 2026-01-06 123131.png" alt="Certificate 4" onclick="openPopup(this.src)"
+                    width="300">
+                <img src="Screenshot 2026-01-06 123028.png" alt="Certificate 5" onclick="openPopup(this.src)"
+                    width="300">
+                <img src="GULASHAN KUMAR Internship Certificate_page-0001.jpg" alt="Certificate 6"
+                    onclick="openPopup(this.src)" width="300">
+                <img src="Gulashan Kumar - Intro to Machine Learning.png" alt="Certificate 7"
+                    onclick="openPopup(this.src)" width="300">
+            </div>
+
+            <div class="what_i_do">
+                <h2>What I Do</h2>
+                <div class="services">
+                    <div class="service-item">
+                        <i class="fa-solid fa-chart-simple fa-3x"></i>
+                        <h3>Data Analysis</h3> <hr>
+                        <p>Extracting insights from complex datasets using statistical analysis and visualization
+                            techniques.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-robot fa-3x"></i>
+                        <h3>Machine Learning</h3> <hr>
+                        <p>Building predictive models using supervised and unsupervised learning algorithms.</p>
+                    </div>
+                    <div class="service_item">
+                        <i class="fa-solid fa-chart-area fa-3x"></i>
+                        <h3>Data Science</h3> <hr>
+                        <p>Applying statistical and machine learning techniques to extract meaningful insights from
+                            data.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-chart-line fa-3x"></i>
+                        <h3>Data Visualization</h3> <hr>
+                        <p>Creating interactive dashboards and visualizations to communicate data insights effectively.
+                        </p>
+                    </div>
+                    <div class="service_item">
+                        <i class="fa-solid fa-laptop-code fa-3x"></i>
+                        <h3>Web Designing</h3> <hr>
+                        <p>Creating responsive and user-friendly websites using modern web technologies.</p>
+                    </div>
+                    <div class="service_item">
+                        <i class="fa-solid fa-database fa-3x"></i>
+                        <h3>SQL Development</h3> <hr>
+                        <p>Designing and optimizing databases, writing efficient queries, and managing data structures.
+                        </p>
+                    </div>
+                    <div class="service_item">
+                        <i class="fa-brands fa-python fa-3x"></i>
+                        <h3>Python Development</h3> <hr>
+                        <p>Building scalable applications and automating tasks using Python programming language.</p>
+                    </div>
+                    <div class="service_item">
+                        <i class="fa-solid fa-cloud fa-3x"></i>
+                        <h3>Cloud Computing</h3> <hr>
+                        <p>Deploying and managing applications on cloud platforms like AWS, Azure, or Google Cloud.</p>
+                    </div>
+                </div>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Untitled_design-removebg-preview.png" alt="GulluCode Logo">
+                <h3>GULLUCODE</h3>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-group">
+                    <h3>Main</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Contact</h3>
+                    <a href="mailto:gullucode@gmail.com">Email</a>
+                    <a href="https://chat.whatsapp.com/Kqv6HoVgiT6BvsaYjRSQ7Q">WhatsApp</a>
+
+                </div>
+
+                <div class="footer-group">
+                    <h3>Social</h3>
+                    <div class="social-grid">
+                        <a href="https://github.com/GulluCode">GitHub</a>
+                        <a href="https://linkedin.com/in/...">Linkedin</a>
+                        <a href="https://leetcode.com/...">Leetcode</a>
+                        <a href="https://hackerrank.com/...">HackerRank</a>
+                        <a href="https://kaggle.com/...">Kaggle</a>
+                        <a href="https://freelancer.in/...">Freelancer</a>
+                        <a href="https://instagram.com/...">Instagram</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GULLUCODE. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- JS FILE -->
+    <script>
+        /* TYPING */
+        const words = ["Data Scientist", "Machine Learning", "Data Analytics", "Web design"];
+        let i = 0, j = 0, isDeleting = false;
+        const textEl = document.querySelector(".animation");
+
+        function type() {
+            textEl.textContent = words[i].substring(0, j);
+            if (!isDeleting && j++ === words[i].length) {
+                isDeleting = true;
+                setTimeout(type, 1200);
+                return;
+            }
+            if (isDeleting && j-- === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+            }
+            setTimeout(type, isDeleting ? 60 : 120);
+        }
+        type();
+
+        /* TOGGLE MENU */
+        function toggleMenu() {
+            const nav = document.querySelector("nav ul");
+            nav.classList.toggle("show-menu");
+        }
+
+        /* Search Box */
+        function toggleSearchBox() {
+            const searchBox = document.querySelector(".searchbox");
+            searchBox.style.width = searchBox.style.width === "0px" ? "140px" : "0px";
+        }
+
+        /* Certificate Popup */
+        const popup = document.getElementById("certPopup");
+        const popupImg = document.getElementById("popupImg");
+        const closeBtn = document.querySelector(".close-btn");
+
+        function openPopup(src) {
+            popup.style.display = "flex";
+            popupImg.src = src;
+        }
+
+        closeBtn.onclick = () => {
+            popup.style.display = "none";
+        };
+
+        popup.onclick = (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        };
+
+    </script>
+</body>
+
+</html>

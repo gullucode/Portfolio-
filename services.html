@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GULLUCODE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Untitled_design-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+    <header>
+        <span class="menu-btn" onclick="toggleMenu()">☰</span>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> HOME</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-user"></i> ABOUT</a></li>
+                <li><a href="projects.html"><i class="fa-solid fa-briefcase"></i> PROJECTS</a></li>
+                <li><a href="services.html"><i class="fa-solid fa-gear"></i> SERVICES</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="Untitled_design-removebg-preview.png" alt="image" width="40" height="40">
+            <h3>GULLUCODE</h3>
+        </div>
+        <button><input type="search" placeholder="Search..." class="searchbox"> <i
+                class="fa-solid fa-magnifying-glass"></i></button>
+
+        <button class="login"><a href="login.html">Login</a></button>
+    </header>
+    <Main>
+        <div class="services">
+            <h1>Services</h1>
+            <div class="service-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Data Science Consulting</h2>
+                <p>Providing expert advice on data strategy, analytics, and machine learning implementation to help
+                    businesses leverage their data effectively.</p>
+            </div>
+            <div class="service-item">
+                <i class="fa-solid fa-robot"></i>
+                <h2>Machine Learning Solutions</h2>
+                <p>Developing custom machine learning models tailored to specific business needs, including predictive
+                    analytics, recommendation systems, and natural language processing.</p>
+            </div>
+            <div class="service-item">
+                <i class="fa-solid fa-database"></i>
+                <h2>Data Analytics Services</h2>
+                <p>Offering comprehensive data analysis services, including data cleaning, visualization, and reporting
+                    to
+                    uncover insights and drive informed decision-making.</p>
+            </div>
+            <div class="service-item">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h2>Web Design and Development</h2>
+                <p>Creating responsive and user-friendly websites that effectively showcase your brand and engage your
+                    audience.</p>
+            </div>
+        </div>
+    </Main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Untitled_design-removebg-preview.png" alt="GulluCode Logo">
+                <h3>GULLUCODE</h3>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-group">
+                    <h3>Main</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Contact</h3>
+                    <a href="mailto:gullucode@gmail.com">Email</a>
+                    <a href="https://chat.whatsapp.com/Kqv6HoVgiT6BvsaYjRSQ7Q">WhatsApp</a>
+
+                </div>
+
+                <div class="footer-group">
+                    <h3>Social</h3>
+                    <div class="social-grid">
+                        <a href="https://github.com/GulluCode">GitHub</a>
+                        <a href="https://linkedin.com/in/...">Linkedin</a>
+                        <a href="https://leetcode.com/...">Leetcode</a>
+                        <a href="https://hackerrank.com/...">HackerRank</a>
+                        <a href="https://kaggle.com/...">Kaggle</a>
+                        <a href="https://freelancer.in/...">Freelancer</a>
+                        <a href="https://instagram.com/...">Instagram</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GULLUCODE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS FILE -->
+    <script>
+        /* TYPING */
+        const words = ["Data Scientist", "Machine Learning", "Data Analytics", "Web design"];
+        let i = 0, j = 0, isDeleting = false;
+        const textEl = document.querySelector(".animation");
+
+        function type() {
+            textEl.textContent = words[i].substring(0, j);
+            if (!isDeleting && j++ === words[i].length) {
+                isDeleting = true;
+                setTimeout(type, 1200);
+                return;
+            }
+            if (isDeleting && j-- === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+            }
+            setTimeout(type, isDeleting ? 60 : 120);
+        }
+        type();
+
+        /* TOGGLE MENU */
+        function toggleMenu() {
+            const nav = document.querySelector("nav ul");
+            nav.classList.toggle("show-menu");
+        }
+
+        /* Search Box */
+        function toggleSearchBox() {
+            const searchBox = document.querySelector(".searchbox");
+            searchBox.style.width = searchBox.style.width === "0px" ? "140px" : "0px";
+        }
+
+        /* Certificate Popup */
+        const popup = document.getElementById("certPopup");
+        const popupImg = document.getElementById("popupImg");
+        const closeBtn = document.querySelector(".close-btn");
+
+        function openPopup(src) {
+            popup.style.display = "flex";
+            popupImg.src = src;
+        }
+
+        closeBtn.onclick = () => {
+            popup.style.display = "none";
+        };
+
+        popup.onclick = (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        };
+
+    </script>
+</body>
+
+</html>

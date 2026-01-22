@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GULLUCODE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Untitled_design-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* 1. Base Styles & Variables */
+        :root {
+            --bg-main: #ffffff;
+            --bg-alt: #f8f9fa;
+            --text-dark: #2d2e2e;
+            --text-gray: #616161;
+            --accent-gray: #737578;
+            --border: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 2. Header & Introduction */
+        .projects {
+            text-align: center;
+        }
+
+        .image_logo {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .projects>p {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* 3. Category Sections (Data Analysis, Python, etc.) */
+        .data-analysis,
+        .python,
+        .web-development {
+            margin-top: 60px;
+            display: grid;
+            /* This creates the responsive grid */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Make category headings span the full width of the grid */
+        h2 {
+            grid-column: 1 / -1;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--bg-alt);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        /* 4. Project Cards (Sections) */
+        section {
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        section:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: var(--bg-alt);
+        }
+
+        .title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            /* Pushes links to the bottom */
+        }
+
+        /* 5. Links and Buttons */
+        section a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid var(--accent-gray);
+            border-radius: 6px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        section a:hover {
+            background-color: var(--accent-gray);
+            color: white;
+        }
+
+        .Visit-project {
+            background-color: var(--text-light);
+            color: rgb(13, 73, 202) !important;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            border-radius: 0 90% 90% 0;
+            
+        }
+
+        /* 6. Responsive Adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .data-analysis,
+            .python,
+            .web-development {
+                grid-template-columns: 1fr;
+                /* Force 1 column on small phones */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <span class="menu-btn" onclick="toggleMenu()">☰</span>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> HOME</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-user"></i> ABOUT</a></li>
+                <li><a href="projects.html"><i class="fa-solid fa-briefcase"></i> PROJECTS</a></li>
+                <!-- <li><a href="services.html"><i class="fa-solid fa-gear"></i> SERVICES</a></li> -->
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="Untitled_design-removebg-preview.png" alt="image" width="40" height="40">
+            <h3>GULLUCODE</h3>
+        </div>
+        <button><input type="search" placeholder="Search..." class="searchbox"> <i
+                class="fa-solid fa-magnifying-glass"></i></button>
+
+        <button class="login"><a href="login.html">Login</a></button>
+    </header>
+    <main>
+        <div class="projects">
+
+            <div class="image_logo">
+                <i class="fa-solid fa-computer fa-beat-fade fa-10x" style="color: #737578;"></i>
+            </div>
+
+            <h1>My Projects</h1>
+            <p>
+                Explore a selection of my projects showcasing my skills in data analysis,
+                machine learning, and web development.
+            </p>
+
+            <!-- ================= DATA ANALYSIS ================= -->
+            <div class="data-analysis">
+                <h2>Data Analysis Projects</h2>
+
+                <section class="AP-project_01">
+                    <img src="https://raw.githubusercontent.com/gullucode/FUTURE_DS_01/39b27edbfa5544783a9723ccd8daf30d944354b6/Screenshot%202025-11-30%20080024.png"
+                        alt="image">
+                    <h3 class="title">Business Sales Dashboard from E-Commerce Data</h3>
+                    <p class="description">
+                        Developed an interactive sales dashboard using Python, Pandas, and Plotly
+                        to visualize e-commerce data, enabling stakeholders to track sales performance
+                        and make informed business decisions.
+                    </p>
+                    <a href="https://github.com/gullucode/FUTURE_DS_01">More Details</a>
+                </section>
+
+                <section class="AP-project_02">
+                    <img src="https://raw.githubusercontent.com/gullucode/FUTURE_DS_02/3c25326e389dfd32a7c48b99f85c2780875cca31/Screenshot%202025-12-02%20071823.png"
+                        alt="image">
+                    <h3 class="title">Facebook Campaign Performance Tracker Dashboard</h3>
+                    <p class="description">
+                        Created a dynamic dashboard using Python, Pandas, and Plotly to monitor
+                        Facebook ad campaign performance, providing insights into key metrics such as
+                        reach, engagement, and conversion rates.
+                    </p>
+                    <a href="https://github.com/gullucode/FUTURE_DS_02">More Details</a>
+                </section>
+
+                <section class="AP-project_03">
+                    <img src="https://rapidise.co/wp-content/uploads/2025/02/What-is-NLP-The-Definition.webp"
+                        alt="image">
+                    <h3 class="title">College Event Feedback Analysis</h3>
+                    <p class="description">This analysis helps colleges identify how students feel about campus events
+                        by studying textual feedback and ratings.
+                    <h4>📌 Key Goals:</h4>
+
+                    Extract insights from survey data
+                    Find strengths & improvement areas
+                    Convert feedback into actionable decisions</p>
+                    <a href="https://github.com/gullucode/FUTURE_DS_03">More Details</a>
+                </section>
+            </div>
+
+            <!-- ================= PYTHON ================= -->
+            <div class="python">
+                <h2>Python Projects</h2>
+
+                <section class="py-project_01">
+                    <img src="https://raw.githubusercontent.com/gullucode/Real-world-Calculators/347ff554f977b0ee98b3e4602fb98ccad313f3c2/Screenshot%202026-01-20%20102223.png"
+                        alt="image">
+                    <h3 class="title">Real World Calculator</h3>
+                    <p class="description">
+                        Developed a comprehensive calculator application using Python that performs
+                        basic arithmetic operations, scientific calculations, and unit conversions.
+                    </p>
+                    <a href="https://github.com/gullucode/Real-world-Calculators/tree/main">More Details</a>
+                </section>
+            </div>
+
+            <!-- ================= WEB DEVELOPMENT ================= -->
+            <div class="web-development">
+                <h2>Web Development Projects</h2>
+
+                <section class="web-project_01">
+                    <img src="ka haal !!.png" alt="image">
+                    <h3 class="title">Real Time Chatting Web Application <a class="Visit-project"
+                            href="https://ka-haal--gullucode.replit.app/">Visit</a> </h3>
+                    <p class="description">
+                        Created a real-time chatting web application using HTML, CSS, and Node.js
+                        that allows users to communicate instantly in a secure and user-friendly environment.
+                    </p>
+                    <a href="https://github.com/gullucode/kahaal-">More Details</a>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Untitled_design-removebg-preview.png" alt="GulluCode Logo">
+                <h3>GULLUCODE</h3>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-group">
+                    <h3>Main</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+
+                <div class="footer-group">
+                    <h3>Contact</h3>
+                    <a href="mailto:gullucode@gmail.com">Email</a>
+                    <a href="https://chat.whatsapp.com/Kqv6HoVgiT6BvsaYjRSQ7Q">WhatsApp</a>
+
+                </div>
+
+                <div class="footer-group">
+                    <h3>Social</h3>
+                    <div class="social-grid">
+                        <a href="https://github.com/GulluCode">GitHub</a>
+                        <a href="https://linkedin.com/in/...">Linkedin</a>
+                        <a href="https://leetcode.com/...">Leetcode</a>
+                        <a href="https://hackerrank.com/...">HackerRank</a>
+                        <a href="https://kaggle.com/...">Kaggle</a>
+                        <a href="https://freelancer.in/...">Freelancer</a>
+                        <a href="https://instagram.com/...">Instagram</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GULLUCODE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS FILE -->
+    <script>
+        /* TYPING */
+        const words = ["Data Scientist", "Machine Learning", "Data Analytics", "Web design"];
+        let i = 0, j = 0, isDeleting = false;
+        const textEl = document.querySelector(".animation");
+
+        function type() {
+            textEl.textContent = words[i].substring(0, j);
+            if (!isDeleting && j++ === words[i].length) {
+                isDeleting = true;
+                setTimeout(type, 1200);
+                return;
+            }
+            if (isDeleting && j-- === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+            }
+            setTimeout(type, isDeleting ? 60 : 120);
+        }
+        type();
+
+        /* TOGGLE MENU */
+        function toggleMenu() {
+            const nav = document.querySelector("nav ul");
+            nav.classList.toggle("show-menu");
+        }
+
+        /* Search Box */
+        function toggleSearchBox() {
+            const searchBox = document.querySelector(".searchbox");
+            searchBox.style.width = searchBox.style.width === "0px" ? "140px" : "0px";
+        }
+
+        /* Certificate Popup */
+        const popup = document.getElementById("certPopup");
+        const popupImg = document.getElementById("popupImg");
+        const closeBtn = document.querySelector(".close-btn");
+
+        function openPopup(src) {
+            popup.style.display = "flex";
+            popupImg.src = src;
+        }
+
+        closeBtn.onclick = () => {
+            popup.style.display = "none";
+        };
+
+        popup.onclick = (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        };
+
+    </script>
+</body>
+
+</html>

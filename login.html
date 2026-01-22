@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Sign Up | GULLUCODE</title>
+<link rel="icon" type="image/x-icon" href="Untitled_design-removebg-preview.png">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+input {
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px);
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: clamp(14px, 2vw, 16px);
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6b6b6b;
+}
+
+button {
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px);
+    margin-top: 15px;
+    background: #6b6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: clamp(14px, 2vw, 16px);
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #4f4f4f;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.toggle {
+    margin-top: 15px;
+    color: #666;
+    cursor: pointer;
+    font-size: clamp(13px, 2vw, 15px);
+    transition: color 0.3s ease;
+}
+
+.toggle:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.msg {
+    margin-top: 15px;
+    color: red;
+    font-size: clamp(13px, 2vw, 14px);
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    input {
+        margin: 8px 0;
+    }
+
+    button {
+        margin-top: 12px;
+    }
+
+    .toggle {
+        margin-top: 12px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+/* Large screens */
+@media (min-width: 769px) {
+    .container {
+        max-width: 400px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 id="title">Login</h2>
+
+    <input type="text" id="name" placeholder="Full Name" style="display:none;">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="handleSubmit()">Submit</button>
+
+    <div class="toggle" onclick="toggleForm()">Create an account</div>
+    <div class="msg" id="message"></div>
+</div>
+
+<script>
+let isLogin = true;
+
+/* Toggle Login / Signup */
+function toggleForm() {
+    isLogin = !isLogin;
+    document.getElementById("title").innerText = isLogin ? "Login" : "Sign Up";
+    document.getElementById("name").style.display = isLogin ? "none" : "block";
+    document.querySelector(".toggle").innerText =
+        isLogin ? "Create an account" : "Already have an account?";
+    document.getElementById("message").innerText = "";
+}
+
+/* Submit Handler */
+function handleSubmit() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password || (!isLogin && !name)) {
+        showMessage("All fields are required");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (!isLogin) {
+        // SIGN UP
+        const exists = users.find(u => u.email === email);
+        if (exists) {
+            showMessage("User already exists");
+            return;
+        }
+
+        users.push({ name, email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+        showMessage("Signup successful", "green");
+        toggleForm();
+
+    } else {
+        // LOGIN
+        const user = users.find(u => u.email === email && u.password === password);
+        if (!user) {
+            showMessage("Invalid email or password");
+            return;
+        }
+        showMessage("Login successful! Welcome " + user.name, "green");
+    }
+}
+
+/* Message */
+function showMessage(msg, color = "red") {
+    const el = document.getElementById("message");
+    el.style.color = color;
+    el.innerText = msg;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+/* ===============================
+   RESET & ROOT
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===============================
+   HEADER
+================================ */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h3 {
+    font-size: 20px;
+    color: #444;
+}
+
+/* ===============================
+   NAVIGATION
+================================ */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #000;
+}
+
+/* Toggle Button */
+.menu-btn {
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+}
+
+/* ===============================
+   SEARCH + LOGIN
+================================ */
+header button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f0f0;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.searchbox {
+    width: 180px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+header button:hover {
+    background: #e0e0e0;
+}
+
+.login a {
+    background: #e0e0e0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login a:hover {
+    background: #d0d0d0;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    animation: fadeIn 1.2s ease;
+}
+
+.intro h1 {
+    font-size: 42px;
+    color: #222;
+}
+
+.animation {
+    font-size: 22px;
+    color: #666;
+    min-height: 32px;
+    margin: 10px 0;
+}
+
+.intro p {
+    max-width: 520px;
+    color: #555;
+}
+
+/* ===============================
+   SOCIAL LINKS
+================================ */
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    color: #000;
+}
+
+/* ===================================
+   CERTIFICATES (MANUAL SCROLL)
+=================================== */
+.certificate {
+    padding: 60px 20px;
+    background: #ffffff;
+}
+
+.certificate h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #222;
+}
+
+/* Horizontal scroll container */
+.certi-images {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 10px 5px 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar styling */
+.certi-images::-webkit-scrollbar {
+    height: 6px;
+}
+
+.certi-images::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.certi-images::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 10px;
+}
+
+.certi-images::-webkit-scrollbar-thumb:hover {
+    background: #9e9e9e;
+}
+
+/* Certificate card */
+.certi-images img {
+    width: 280px;
+    max-width: 80vw;
+    flex-shrink: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover (desktop only) */
+@media (hover: hover) {
+    .certi-images img:hover {
+        transform: scale(1.06);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+}
+
+/* ===================================
+   CERTIFICATE POPUP (POP-OFF)
+=================================== */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+    backdrop-filter: blur(3px);
+}
+
+/* Popup Image */
+.popup img {
+    max-width: min(90%, 900px);
+    max-height: 90vh;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.35s ease;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 42px;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 1;
+    user-select: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Popup animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===================================
+   MOBILE OPTIMIZATION
+=================================== */
+@media (max-width: 600px) {
+    .certificate {
+        padding: 40px 15px;
+    }
+
+    .certificate h2 {
+        font-size: 24px;
+    }
+
+    .close-btn {
+        font-size: 36px;
+        top: 14px;
+        right: 16px;
+    }
+}
+
+
+
+/* ===============================
+   SERVICES
+================================ */
+.what_i_do {
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.service-item,
+.service_item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.service-item:hover,
+.service_item:hover {
+    transform: translateY(-8px);
+}
+
+.service-item i,
+.service_item i {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* General Reset */
+footer {
+    background-color: #1a1d21;
+    /* Dark background */
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+/* Logo Styling */
+.footer-logo {
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-logo img {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(230, 233, 234, 0.5));
+}
+
+.footer-logo h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Links Layout */
+.footer-links {
+    display: flex;
+    gap: 100px;
+    flex: 2;
+}
+
+.footer-group h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-group a {
+    display: block;
+    text-decoration: none;
+    color: #3c3d3e;
+    /* Cyan color from design */
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.footer-group a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Copyright Section */
+.footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(230, 233, 234, 0.5);
+    /* Thin cyan line */
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+} */
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablets */
+@media (max-width: 900px) {
+    nav ul {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.show-menu {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .searchbox {
+        width: 140px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    header button {
+        padding: 6px;
+    }
+
+    .searchbox {
+        width: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    header button:focus-within .searchbox {
+        width: 140px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+    }
+
+    .animation {
+        font-size: 18px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer a {
+        justify-content: center;
+    }
+
+    footer .logo {
+        justify-content: center;
+    }
+}
